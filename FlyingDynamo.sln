@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingDynamo", "FlyingDynamo\FlyingDynamo.csproj", "{B6626977-DCD3-4C15-B276-F702D4CA03B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6626977-DCD3-4C15-B276-F702D4CA03B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6626977-DCD3-4C15-B276-F702D4CA03B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6626977-DCD3-4C15-B276-F702D4CA03B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6626977-DCD3-4C15-B276-F702D4CA03B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C65468F6-9E9E-4F43-82CE-6755E8B3DCFF}
+	EndGlobalSection
+EndGlobal
