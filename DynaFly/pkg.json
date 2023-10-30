@@ -1,0 +1,21 @@
+{
+	"license": "MIT",
+	"file_hash": null,
+	"name": "DynaFly",
+	"version": "1.0.0",
+	"description": "Contains Zero-touch nodes for exporting data, and more!",
+	"group": "",
+	"keywords": null,
+	"dependencies": [],
+	"host_dependencies": [],
+	"contents": "",
+	"engine_version": "2.12.1.11123",
+	"engine": "dynamo",
+	"engine_metadata": "",
+	"site_url": "https://www.flygareprojects.com",
+	"repository_url": "https://github.com/KibbaFlyer/DynaFly.git",
+	"contains_binaries": true,
+	"node_libraries": [
+		"DynaFly, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	]
+}
