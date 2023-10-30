@@ -4,22 +4,6 @@ using RevitServices.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.DB.IFC;
-using BIM.IFC.Export.UI;
-using Autodesk.Revit.DB.ExtensibleStorage;
-using Revit;
-using System.Runtime.ConstrainedExecution;
-using Autodesk.DesignScript.Geometry;
-using Autodesk.Revit.Creation;
-using Autodesk.Revit.DB.Visual;
-using Microsoft.SqlServer.Server;
-using static System.Net.WebRequestMethods;
-using System.Net.NetworkInformation;
-using System.Net;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Data
 {
@@ -37,9 +21,13 @@ namespace Data
         /// <param name="path">The file path to save the IFC file.</param>
         /// <param name="ifcOptions">Settings for IFC export. Note: Use the node "IFC.CreateIFCExportOptions" to create the settings.</param>
         /// <returns>true if the export is successful; otherwise, false.</returns>
-        public static bool ExportViews(List<string> names, List<int> viewIds, string path, IFCExportOptions ifcOptions)
+        public static Tuple<List<View>, List<string>, List<string>, List<bool>> ExportViews(List<string> names, List<int> viewIds, string path, IFCExportOptions ifcOptions)
         {
-            
+            List<View> viewsToReturn = new List<View>();
+            List<string> filepathsToReturn = new List<string>();
+            List<string> timestampsToReturn = new List<string>();
+            List<bool> exportStatus = new List<bool>();
+
             Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
             UIApplication uIApplication = DocumentManager.Instance.CurrentUIApplication;
             // Check if the document, viewIds, or path is null
@@ -67,20 +55,35 @@ namespace Data
                         var currentView = enumViews.Current;
                         ElementId elementId = new ElementId(currentView);
                         View view = doc.GetElement(elementId) as View;
+
+                        // Populate the return lists
+                        viewsToReturn.Add(view);
+                        filepathsToReturn.Add(System.IO.Path.Combine(path, currentName + ".ifc"));
+                        timestampsToReturn.Add(DateTime.Now.ToString());
+
                         // Time to get the viewId
                         ifcOptions.AddOption("ActiveViewId", elementId.ToString());
                         ifcOptions.FilterViewId = elementId;
 
                         // Execute the export command
                         doc.Export(path, currentName, ifcOptions);
+
+                        // Add true if the export succeeded
+                        exportStatus.Add(true);
                     }
-                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred during IFC export: " + ex.Message);
-                return false;
+                // Add false if the export didn't succeed
+                exportStatus.Add(false);
+                // Populate the return lists
+                viewsToReturn.Add(null);
+                filepathsToReturn.Add(null);
+                timestampsToReturn.Add(null);
             }
+            return new Tuple<List<View>, List<string>, List<string>, List<bool>>(viewsToReturn, filepathsToReturn, timestampsToReturn, exportStatus);
+
         }
 
         /// <summary>

@@ -7,8 +7,8 @@
     <ProjectGuid>{B6626977-DCD3-4C15-B276-F702D4CA03B4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlyingDynamo</RootNamespace>
-    <AssemblyName>FlyingDynamo</AssemblyName>
+    <RootNamespace>DynaFly</RootNamespace>
+    <AssemblyName>DynaFly</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\FlyingDynamo.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\DynaFly.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -89,10 +89,10 @@
       <SourceXmls Include="$(TargetDir)*.xml" />
       <SourcePkg Include="pkg.json" />
     </ItemGroup>
-    <RemoveDir Directories="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\$(ProjectName)\bin" />
-    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\$(ProjectName)\bin\%(RecursiveDir)" />
-    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\$(ProjectName)\" />
-    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\$(ProjectName)\bin\" />
-    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\$(ProjectName)\bin\" />
+    <RemoveDir Directories="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin" />
+    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\%(RecursiveDir)" />
+    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\" />
+    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\" />
+    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\" />
   </Target>
 </Project>

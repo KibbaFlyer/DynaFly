@@ -9,7 +9,7 @@ using RevitServices.Persistence;
 namespace Revit
 {
     /// <summary>
-    /// ^Contains nodes for interacting with Phases
+    /// Contains nodes for interacting with Phases
     /// </summary>
     public class Elements
     {
