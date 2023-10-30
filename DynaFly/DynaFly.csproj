@@ -89,10 +89,10 @@
       <SourceXmls Include="$(TargetDir)*.xml" />
       <SourcePkg Include="pkg.json" />
     </ItemGroup>
-    <RemoveDir Directories="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin" />
-    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\%(RecursiveDir)" />
-    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\" />
-    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\" />
-    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\Flying Dynamo\bin\" />
+    <RemoveDir Directories="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin" />
+    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\%(RecursiveDir)" />
+    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\" />
+    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
+    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
   </Target>
 </Project>

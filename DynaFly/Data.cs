@@ -21,7 +21,7 @@ namespace Data
         /// <param name="path">The file path to save the IFC file.</param>
         /// <param name="ifcOptions">Settings for IFC export. Note: Use the node "IFC.CreateIFCExportOptions" to create the settings.</param>
         /// <returns>true if the export is successful; otherwise, false.</returns>
-        public static Tuple<List<View>, List<string>, List<string>, List<bool>> ExportViews(List<string> names, List<int> viewIds, string path, IFCExportOptions ifcOptions)
+        public static Dictionary<string, object> ExportViews(List<string> names, List<int> viewIds, string path, IFCExportOptions ifcOptions)
         {
             List<View> viewsToReturn = new List<View>();
             List<string> filepathsToReturn = new List<string>();
@@ -82,7 +82,14 @@ namespace Data
                 filepathsToReturn.Add(null);
                 timestampsToReturn.Add(null);
             }
-            return new Tuple<List<View>, List<string>, List<string>, List<bool>>(viewsToReturn, filepathsToReturn, timestampsToReturn, exportStatus);
+            Dictionary<string, object> output = new Dictionary<string, object>
+            {
+                { "Views", viewsToReturn },
+                { "Filepaths", filepathsToReturn },
+                { "Timestamps", timestampsToReturn },
+                { "Status", exportStatus }
+            };
+            return output;
 
         }
 
