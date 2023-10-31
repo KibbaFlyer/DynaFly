@@ -27,11 +27,52 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;DYNAMO_2_12 DYNAMO_2_16</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\DynaFly.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_2022|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_2022\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DYNAMO_2022</DefineConstants>
+    <DocumentationFile>bin\Debug\DynaFly.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_2023|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_2023\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DYNAMO_2023</DefineConstants>
+    <DocumentationFile>bin\Debug\DynaFly.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_2022|AnyCPU'">
+    <OutputPath>bin\Release_2022\</OutputPath>
+    <DefineConstants>TRACE;DYNAMO_2022</DefineConstants>
+    <DocumentationFile>bin\Release\DynaFly.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_2023|AnyCPU'">
+    <OutputPath>bin\Release_2023\</OutputPath>
+    <DefineConstants>TRACE;DYNAMO_2023</DefineConstants>
+    <DocumentationFile>bin\Release\DynaFly.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(DefineConstants)' == 'TRACE;DEBUG;DYNAMO_2022' OR '$(DefineConstants)' == 'TRACE;DYNAMO_2022'">
     <Reference Include="Autodesk.IFC.Export.UI">
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\AddIns\IFCExporterUI\Autodesk.IFC.Export.UI.dll</HintPath>
     </Reference>
@@ -53,8 +94,48 @@
     <Reference Include="RevitAPIUI">
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
     </Reference>
+    <Reference Include="RevitNodes">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\AddIns\DynamoForRevit\Revit\RevitNodes.dll</HintPath>
+    </Reference>
     <Reference Include="RevitServices">
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\AddIns\DynamoForRevit\Revit\RevitServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(DefineConstants)' == 'TRACE;DEBUG;DYNAMO_2023' OR '$(DefineConstants)' == 'TRACE;DYNAMO_2023'">
+    <Reference Include="Autodesk.IFC.Export.UI">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\IFCExporterUI\Autodesk.IFC.Export.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoApplications">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\DynamoApplications.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoCore">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\DynamoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoServices">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\DynamoServices.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoGeometry">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\ProtoGeometry.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitNodes">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Revit\RevitNodes.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitServices">
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\AddIns\DynamoForRevit\Revit\RevitServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,10 +170,15 @@
       <SourceXmls Include="$(TargetDir)*.xml" />
       <SourcePkg Include="pkg.json" />
     </ItemGroup>
-    <RemoveDir Directories="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin" />
-    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\%(RecursiveDir)" />
-    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\" />
-    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
-    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
+    <RemoveDir Condition="'$(Configuration)' == 'Debug_2022' Or '$(Configuration)' == 'Release_2022'" Directories="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2022' Or '$(Configuration)' == 'Release_2022'" SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\%(RecursiveDir)" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2022' Or '$(Configuration)' == 'Release_2022'" SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2022' Or '$(Configuration)' == 'Release_2022'" SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2022' Or '$(Configuration)' == 'Release_2022'" SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.12\packages\DynaFly\bin\" />
+    <RemoveDir Condition="'$(Configuration)' == 'Debug_2023' Or '$(Configuration)' == 'Release_2023'" Directories="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\DynaFly\bin" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2023' Or '$(Configuration)' == 'Release_2023'" SourceFiles="@(SourceDlls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\DynaFly\bin\%(RecursiveDir)" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2023' Or '$(Configuration)' == 'Release_2023'" SourceFiles="@(SourcePkg)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\DynaFly\" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2023' Or '$(Configuration)' == 'Release_2023'" SourceFiles="@(SourcePdbs)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\DynaFly\bin\" />
+    <Copy Condition="'$(Configuration)' == 'Debug_2023' Or '$(Configuration)' == 'Release_2023'" SourceFiles="@(SourceXmls)" DestinationFolder="$(AppData)\Dynamo\Dynamo Revit\2.16\packages\DynaFly\bin\" />
   </Target>
 </Project>
